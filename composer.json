@@ -1,5 +1,5 @@
 {
-    "name": "siame",
+    "name": "moutiasaad/siame",
     "require": {
         "php": ">=7.4",
         "some/package": "^1.0"
