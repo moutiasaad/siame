@@ -1,6 +1,6 @@
 <?php
 
-require_once 'db.php';
+require_once '../db.php';
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header('Location: index.php'); // Redirect to login page if not user
@@ -13,7 +13,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 <aside class="sidebar">
     <!-- Profile Section -->
     <div class="sidebar-header">
-        <img src="assets/Images/user.png" alt="Profile Picture">
+        <img src="../../assets/Images/user.png"  alt="Profile Picture" >
         <h3>
             <?php 
                 // Display the user's full name if logged in
@@ -40,7 +40,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 
     <!-- Logout Button -->
     <div class="logout">
-        <button class="logout-btn" onclick="window.location.href='logout.php'">
+        <button class="logout-btn" onclick="window.location.href='../../logout.php'">
             <i class="fas fa-sign-out-alt"></i> Déconnexion
         </button>
     </div>
@@ -50,7 +50,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
         <div class="icon">
             <h2 class="logo">
                 <a href="http://www.siame.com.tn/">
-                    <img src="assets/Images/siame.png" alt="SIAME Logo">
+                    <img src="../../assets/Images/siame.png" alt="SIAME Logo">
                 </a>
             </h2>
         </div>

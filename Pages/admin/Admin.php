@@ -17,7 +17,7 @@ $machines = $stmt->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="assets/CSS/Admin.css">
+    <link rel="stylesheet" href="../../assets/CSS/Admin.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
@@ -71,7 +71,7 @@ $machines = $stmt->fetchAll();
                     <?php foreach ($machines as $machine): ?>
                     <!-- Machine Status Section -->
                     <div class="machine-status">
-                        <img src="assets/Images/Hercule-h200.png" alt="Machine Image" class="machine-image">
+                        <img src="../../assets/Images/Hercule-h200.png" alt="Machine Image" class="machine-image">
                         <div class="machine-info">
                             <h3><?php echo htmlspecialchars($machine['nom']); ?></h3>
                             <p><strong>Location:</strong><?php echo htmlspecialchars($machine['location']); ?></p>

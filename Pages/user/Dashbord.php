@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'db.php';
+require_once '../db.php';
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
     header('Location: index.php'); // Redirect to login page if not user
@@ -19,14 +19,14 @@ $machines = $stmt->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIAME Dashboard</title>
-    <link rel="stylesheet" href="assets/CSS/Dashbord.css">
+    <link rel="stylesheet" href="../../assets/CSS/Dashbord.css">
 </head>
 <body>
     <!-- Header Section -->
     <header class="navbar">
     <h2 class="logo">
         <a href="http://www.siame.com.tn/">
-            <img src="assets/Images/siame.png" alt="SIAME Logo">
+            <img src="../../assets/Images/siame.png" alt="SIAME Logo">
         </a>
     </h2>
     <div style="display: flex; align-items: center;">
@@ -49,7 +49,7 @@ $machines = $stmt->fetchAll();
                 ?>
             </span>
         </div>
-        <button class="btn logout-btn" onclick="window.location.href='logout.php'">Déconnexion</button>
+        <button class="btn logout-btn" onclick="window.location.href='../../logout.php'">Déconnexion</button>
     </div>
 </header>
 
@@ -60,24 +60,19 @@ $machines = $stmt->fetchAll();
     <div class="dashboard">
     <?php foreach ($machines as $machine): ?>
     <div class="machine-status">
-        <img src="assets/Images/Hercule-h200.png" alt="Machine Image" class="machine-image">
+        <img src="../../assets/Images/Hercule-h200.png" alt="Machine Image" class="machine-image">
         <div class="machine-info">
             <h3><?php echo htmlspecialchars($machine['nom']); ?></h3>
             <p><strong>Location:</strong> <?php echo htmlspecialchars($machine['location']); ?></p>
-            <p class="status <?php echo strtolower($machine['etat']); ?>">
-                <strong>Status:</strong> <?php echo ucfirst($machine['etat']); ?>
-            </p>
         </div>
         <h3>Temperature & Control</h3>
         <div class="temperature-display">
             <p><strong>Temperature:</strong> <?php echo htmlspecialchars($machine['température']); ?>°C</p>
         </div>
         <label class="switch">
-            <input type="checkbox" id="switcher-<?php echo $machine['id']; ?>" 
-                   data-id="<?php echo $machine['id']; ?>" 
-                   <?php echo ($machine['etat'] === 'on') ? 'checked' : ''; ?>>
-            <span class="slider round"></span>
-        </label>
+                        <input type="checkbox" data-id="<?php echo $machine['id']; ?>" <?php echo ($machine['etat'] === 'on') ? 'checked' : ''; ?>>
+                        <span class="slider round"></span>
+                    </label>
         <h3>Production Count</h3>
         <div class="production-count">
             <p><strong>Pieces Produced:</strong> <?php echo htmlspecialchars($machine['pieces_produced']); ?></p>

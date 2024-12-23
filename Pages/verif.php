@@ -26,14 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Redirect based on role
         if ($userData['role'] === 'admin') {
-            header('Location: list_machines.php'); // Redirect to admin page
+            header('Location: admin/list_machines.php'); // Redirect to admin page
         } else {
-            header('Location: Dashbord.php'); // Redirect to user dashboard
+            header('Location: user/Dashbord.php'); // Redirect to user dashboard
         }
         exit();
     } else {
         $_SESSION['error'] = 'Incorrect email or password.';
-        header('Location: index.php'); // Redirect back to the login page
+        header('Location: ../index.php'); // Redirect back to the login page
         exit();
     }
 }
