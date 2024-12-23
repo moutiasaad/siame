@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'db.php';
+require_once '../db.php';
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header('Location: index.php'); // Redirect to login page if not admin
     exit();
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ':password' => password_hash($password, PASSWORD_BCRYPT) // Encrypt password
     ]);
 
-    header('Location: Dashbord.php');
+    header('Location: list_users.php');
     exit();
 }
 ?>

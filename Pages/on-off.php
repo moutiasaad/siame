@@ -1,14 +1,14 @@
 <?php
-require_once 'db.php'; // Ensure the database connection is included
+require_once 'db.php'; // Include database connection
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = $_POST['id']; // Retrieve the machine ID from the POST request
-    $state = $_POST['state']; // Retrieve the new state ('on' or 'off')
+    $id = $_POST['id']; // Get machine ID
+    $state = $_POST['state']; // Get new state (on/off)
 
-    // Validate the inputs
+    // Validate input
     if (!empty($id) && in_array($state, ['on', 'off'])) {
-        // Update the machine state in the database
-        $stmt = $bdd->prepare("UPDATE `machine` SET `etat` = :state WHERE `id` = :id");
+        // Update machine state in the database
+        $stmt = $bdd->prepare("UPDATE machine SET etat = :state WHERE id = :id");
         $stmt->execute([
             ':state' => $state,
             ':id' => $id
@@ -21,4 +21,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo "Invalid request method.";
 }
-?>
