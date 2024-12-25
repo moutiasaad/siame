@@ -1,78 +1,17 @@
-
-/* Main Content */
-
-
-/* Forms */
-.form-container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.dashboard {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-    padding: 20px;
-}
-
-/* Machine Status Section */
-
-/* Control Panel Section */
-.control-panel {
-    grid-column: span 1;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.control-panel h3 {
-    margin-bottom: 15px;
-}
-
-.control-panel .connect-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #00BFFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.control-panel .connect-btn:hover {
-    background-color: #008cba;
-}
-
-.control-panel .remote-access ul {
-    list-style: none;
+/* General Main Content Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
     padding: 0;
 }
 
-.control-panel .remote-access ul li {
-    margin: 10px 0;
-}
-
-.control-panel .remote-access ul li a {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-}
-
-.control-panel .remote-access ul li a:hover {
-    text-decoration: underline;
-}
-
-/* OEE Section */
-/* General Main Content Styling */
 .main-content {
-    margin-left: 280px; /* Adjusted for sidebar width */
+    margin-left: 280px; 
     padding: 20px;
     transition: margin-left 0.3s ease;
-    background-color: #f9f9f9; /* Subtle background for contrast */
-    min-height: 100vh; /* Full height */
+    background-color: #f9f9f9; 
+    min-height: 100vh; 
 }
 
 /* Adjust for Collapsed Sidebar */
@@ -80,176 +19,6 @@
     margin-left: 100px; /* Adjusted for collapsed sidebar */
 }
 
-/* Dashboard Grid Styling */
-.dashboard {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-    gap: 20px;
-    margin-top: 20px;
-    align-items: start;
-}
-
-/* Machine Status Card Styling */
-.machine-status {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.machine-status:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.machine-status .machine-image {
-    width: 100%;
-    max-height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.machine-status h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.machine-status .status {
-    margin-top: 10px;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-}
-
-.machine-status .status.connected {
-    background-color: #28a745; /* Green for connected */
-}
-
-.machine-status .status.disconnected {
-    background-color: #dc3545; /* Red for disconnected */
-}
-
-/* Temperature & Control Section */
-.control-panel {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.control-panel:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.control-panel h3 {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.control-panel .temperature-display p {
-    font-size: 14px;
-    margin: 10px 0;
-    font-weight: bold;
-    color: #333;
-}
-
-/* Switch Styling */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 28px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: 0.4s;
-    border-radius: 28px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 20px;
-    width: 20px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: 0.4s;
-    border-radius: 50%;
-}
-
-input:checked + .slider {
-    background-color: #00bfff;
-}
-
-input:checked + .slider:before {
-    transform: translateX(22px);
-}
-
-/* OEE Section Styling */
-.oee-section {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.oee-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.oee-section h3 {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.oee-section .production-count p {
-    font-size: 14px;
-    margin: 10px 0;
-    font-weight: bold;
-    color: #333;
-}
-
-/* Responsive Adjustments */
-@media screen and (max-width: 768px) {
-    .main-content {
-        margin-left: 100px; /* Adjust margin for smaller screens */
-    }
-
-    .dashboard {
-        grid-template-columns: 1fr; /* Single-column layout on smaller screens */
-    }
-}
-
-/* Sidebar Styling */
 /* Sidebar Styling */
 .sidebar {
     width: 280px;
@@ -268,22 +37,21 @@ input:checked + .slider:before {
     transition: width 0.3s ease;
 }
 
-/* Profile Section */
+/* Sidebar Header */
 .sidebar-header {
     text-align: center;
     margin-bottom: 20px;
 }
 
 .sidebar-header img {
-    width: 100px; /* Adjust size for better visibility */
+    width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 4px solid #00bfff; /* Slightly thicker border for aesthetics */
-    object-fit: cover; /* Ensures the image doesn't get distorted */
-    margin: 10px auto; /* Center align the image inside the container */
-    display: block; /* Ensures the image stays block-level for centering */
+    border: 4px solid #00bfff;
+    object-fit: cover;
+    margin: 10px auto;
+    display: block;
 }
-
 
 .sidebar-header h3 {
     font-size: 18px;
@@ -360,195 +128,25 @@ input:checked + .slider:before {
     background-color: #c82333;
 }
 
-/* Teams Section */
-.teams {
-    text-align: center;
-    padding-top: 20px;
-}
-
-.teams .logo img {
-    width: 100px;
-    height: auto;
-}
-
-/* Responsive Sidebar */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 80px;
-    }
-
-    .sidebar-header h3,
-    .sidebar-menu li a span {
-        display: none;
-    }
-
-    .sidebar-menu li a {
-        justify-content: center;
-    }
-
-    .logout-btn {
-        font-size: 12px;
-        padding: 8px;
-    }
-
-    .logout-btn i {
-        margin: 0;
-    }
-}
-
-
-/* Table Styling */
-/* Table Container Styling */
-.table-container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: calc(100% - 350px); /* Adjust width to account for the sidebar and spacing */
-    margin: 50px auto;
-    margin-left: 320px; /* Add more spacing from the sidebar */
-    width: calc(100% - 320px); /* Adjust dynamically for responsiveness */
-    transition: margin-left 0.3s ease, width 0.3s ease; /* Smooth transition for collapsible sidebar */
-}
-
-/* Table Header Styling */
-.table-container h1 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Table Styling */
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.table th,
-.table td {
-    text-align: left;
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-    font-size: 14px;
-    color: #555;
-}
-
-.table th {
-    background-color: #00bfff;
-    color: #fff;
-    font-weight: bold;
-    text-align: center;
-}
-
-.table td {
-    text-align: center;
-}
-
-.table tr:hover {
-    background-color: #f9f9f9;
-}
-
-/* Table Actions Styling */
-.table-actions {
-    text-align: center;
-}
-
-.table-actions button {
-    padding: 8px 12px;
-    background-color: #00bfff;
-    color: #fff;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.table-actions button:hover {
-    background-color: #008cba;
-}
-
-/* Add User Button */
-.add-user-btn {
-    margin-top: 20px;
-    background-color: #00bfff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-align: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.add-user-btn:hover {
-    background-color: #008cba;
-}
-
-/* Responsive Adjustments */
-@media screen and (max-width: 768px) {
-    .table-container {
-        margin-left: 0; /* Reset margin for smaller screens */
-        max-width: 100%;
-        width: 90%; /* Adjust to fit smaller devices */
-        margin: 20px auto;
-    }
-
-    .table th,
-    .table td {
-        font-size: 12px;
-        padding: 8px;
-    }
-
-    .add-user-btn {
-        width: 100%;
-    }
-}
-
-
-
-/* Reusable Buttons */
-/* Primary Button Styling */
-.btn-primary-machine {
-    background-color: #00bfff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-bottom: 20px; /* Add spacing below the button */
-    float: right; /* Align the button to the right */
-}
-
-.btn-primary-machine:hover {
-    background-color: #008cba;
-}
-
-/* Dashboard Grid Adjustment */
+/* Dashboard Styling */
 .dashboard {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
     gap: 20px;
+    margin-top: 20px;
     align-items: start;
-    margin-top: 20px; /* Add spacing above the grid */
 }
 
 /* Machine Status Card Styling */
 .machine-status {
+    display: flex; /* Align image and details side by side */
+    flex-direction: row; /* Horizontal layout */
     background: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    text-align: left;
+    margin-bottom: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -557,52 +155,189 @@ input:checked + .slider:before {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.machine-status h3 {
-    font-size: 18px;
+.machine-image {
+    width: 250px; /* Adjusted for clarity */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Keep the image proportionate */
+    border-radius: 10px;
+    margin-right: 20px; /* Space between image and details */
+}
+
+.machine-info {
+    flex: 1; /* Take up remaining space */
+    color: #333; /* Professional text color */
+    font-size: 16px;
+}
+
+.machine-info h3 {
+    font-size: 22px; /* Larger title for prominence */
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    color: #007bff; /* Add a touch of theme color */
+}
+
+.machine-info p {
+    margin: 5px 0;
+    font-size: 16px;
+    line-height: 1.6; /* Better readability */
+}
+
+.machine-info p strong {
+    font-weight: bold;
     color: #333;
 }
 
-/* Main Content Alignment */
-.main-content {
-    margin-left: 280px; /* Sidebar width alignment */
-    padding: 20px;
-    transition: margin-left 0.3s ease;
-    background-color: #f9f9f9;
-    min-height: 100vh; /* Full height */
+.machine-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-left: 20px;
 }
 
-@media screen and (max-width: 768px) {
-    .btn-primary-machine {
-        float: none; /* Reset alignment for smaller screens */
-        width: 100%; /* Full width for smaller screens */
-        text-align: center;
-    }
-
-    .main-content {
-        margin-left: 100px; /* Adjust for smaller sidebar on small screens */
-    }
+.machine-actions .switch {
+    margin-bottom: 15px;
 }
 
-/*Add Machin */
-.btn-primary-machine {
-    float: right;
-    background-color: #00bfff;
+.machine-actions .btn-danger {
+    background-color: #dc3545;
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    font-size: 14px;
-    font-weight: bold;
+    padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.btn-primary-machine:hover {
-    background-color: #008cba;
+.machine-actions .btn-danger:hover {
+    background-color: #c82333;
 }
-/* Form Container Add machine Styling */
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .machine-status {
+        flex-direction: column; /* Stack image and details vertically */
+        align-items: center; /* Center-align for smaller screens */
+    }
+
+    .machine-image {
+        margin-right: 0; /* Remove spacing */
+        margin-bottom: 15px; /* Add spacing below image */
+    }
+
+    .machine-info {
+        text-align: center; /* Center-align details */
+    }
+
+    .machine-actions {
+        align-items: center;
+        margin-left: 0; /* Reset margin */
+        margin-top: 15px; /* Add spacing above actions */
+    }
+}
+
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f5f7;
+}
+
+/* Machine Card */
+.machine-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    text-align: center;
+}
+
+.machine-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.machine-card img {
+    object-fit: cover;
+    max-height: 200px;
+    width: 100%;
+}
+
+/* Control Panel Card */
+.control-panel-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.control-panel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.control-panel-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.control-panel-card ul li {
+    font-size: 14px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.control-panel-card ul li i {
+    margin-right: 8px;
+    color: #007bff;
+}
+
+/* Data Overview Card */
+.card-body ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.card-body ul li {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.card-body ul li strong {
+    color: #333;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .machine-card img {
+        height: auto;
+    }
+}
+
+/* Form Container Styling */
 .form-container {
     background: #fff;
     padding: 30px;
@@ -610,25 +345,23 @@ input:checked + .slider:before {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: 50px auto; /* Center the form */
-    text-align: center; /* Center align content */
+    text-align: center;
 }
 
-/* Form Title */
 .form-container h1 {
     font-size: 24px;
     font-weight: bold;
-    color: #333;
     margin-bottom: 20px;
+    color: #333;
 }
 
-/* Form Fields */
 .form-container label {
     display: block;
     text-align: left;
     font-size: 14px;
     font-weight: bold;
-    color: #555;
     margin-bottom: 8px;
+    color: #555;
 }
 
 .form-container input {
@@ -646,7 +379,6 @@ input:checked + .slider:before {
     border-color: #00bfff;
 }
 
-/* Submit Button */
 .form-container .btn-primary {
     background-color: #00bfff;
     color: #fff;
@@ -663,10 +395,63 @@ input:checked + .slider:before {
     background-color: #008cba;
 }
 
+/* Table Styling */
+.table-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+}
+
+.table-container h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th,
+.table td {
+    text-align: center;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.table th {
+    background-color: #00bfff;
+    color: #fff;
+    font-weight: bold;
+}
+
+.table tr:hover {
+    background-color: #f9f9f9;
+}
+
 /* Responsive Adjustments */
 @media screen and (max-width: 768px) {
+    .main-content {
+        margin-left: 100px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
     .form-container {
         width: 90%;
+        margin: 20px auto;
+    }
+
+    .table-container {
         margin: 20px auto;
     }
 }
