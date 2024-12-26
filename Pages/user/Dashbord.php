@@ -67,7 +67,7 @@ $machines = $stmt->fetchAll();
         </div>
         <h3>Temperature & Control</h3>
         <div class="temperature-display">
-            <p><strong>Temperature:</strong> <?php echo htmlspecialchars($machine['température']); ?>°C</p>
+            <p><strong>Temperature:</strong> <?php echo htmlspecialchars($machine['temperature']); ?>°C</p>
         </div>
         <label class="switch">
                         <input type="checkbox" data-id="<?php echo $machine['id']; ?>" <?php echo ($machine['etat'] === 'on') ? 'checked' : ''; ?>>
@@ -75,7 +75,7 @@ $machines = $stmt->fetchAll();
                     </label>
         <h3>Production Count</h3>
         <div class="production-count">
-            <p><strong>Pieces Produced:</strong> <?php echo htmlspecialchars($machine['pieces_produced']); ?></p>
+            <p><strong>Pieces Produced:</strong> <?= htmlspecialchars($machine['pieces_produced'] ?? '0'); ?></p>
         </div>
     </div>
     <?php endforeach; ?>

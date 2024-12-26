@@ -27,7 +27,7 @@ try {
     <?php include 'sidebar.php'; ?>
     <div class="main-content">
         <h1 class="text-center">Liste des Machines</h1>
-        <button class="btn btn-primary btn-primary-machine" data-bs-toggle="modal" data-bs-target="#addMachineModal">Ajouter une Machine</button>
+        <button class="btn-primary-machine" data-bs-toggle="modal" data-bs-target="#addMachineModal">Ajouter une Machine</button>
         <div class="container mt-5">
         <div class="row g-4">
             <?php foreach ($machines as $machine): ?>
@@ -60,12 +60,12 @@ try {
                                 <ul class="list-unstyled">
                                     <li><strong>Température:</strong> <?= htmlspecialchars($machine['temperature'] ?? '0'); ?>°C</li>
                                     <li><strong>Pression:</strong> <?= htmlspecialchars($machine['pressure'] ?? '0'); ?> Pa</li>
-                                    <li><strong>Cycle Time:</strong> <?= htmlspecialchars($machine['cycle_time'] ?? '0'); ?> s</li>
+                                    <li><strong>Durée du cycle:</strong> <?= htmlspecialchars($machine['cycle_time'] ?? '0'); ?> s</li>
                                     <li><strong>Pièces Produites:</strong> <?= htmlspecialchars($machine['pieces_produced'] ?? '0'); ?></li>
-                                    <li><strong>Energy Consumption:</strong> <?= htmlspecialchars($machine['energy_consumption'] ?? '0'); ?> kWh</li>
-                                    <li><strong>Voltage:</strong> <?= htmlspecialchars($machine['voltage'] ?? '0'); ?> V</li>
-                                    <li><strong>Humidity:</strong> <?= htmlspecialchars($machine['humidity'] ?? '0'); ?>%</li>
-                                    <li><strong>Last Sync:</strong> <?= htmlspecialchars($machine['last_sync'] ?? 'N/A'); ?></li>
+                                    <li><strong>Consommation d'énergie:</strong> <?= htmlspecialchars($machine['energy_consumption'] ?? '0'); ?> kWh</li>
+                                    <li><strong>Tension:</strong> <?= htmlspecialchars($machine['voltage'] ?? '0'); ?> V</li>
+                                    <li><strong>Humidité:</strong> <?= htmlspecialchars($machine['humidity'] ?? '0'); ?>%</li>
+                                    <li><strong>Dernière synchronisation:</strong> <?= htmlspecialchars($machine['last_sync'] ?? 'N/A'); ?></li>
                                 </ul>
                             </div>
                         </div>
@@ -73,19 +73,24 @@ try {
                     <div class="col-md-4">
                     <div class="card shadow-lg border-0 rounded control-panel-card">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Control Panel</h5>
+                            <h5 class="card-title text-center">Panneau de contrôle</h5>
                             
                             <!-- State Toggle Switch -->
+                           <!-- Power Section Translated to French with Clear Context -->
                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="text-muted">Power</span>
+                                <span class="text-muted">Puissance</span>
                                 <label class="switch">
                                     <input type="checkbox" class="state-switch" data-id="<?= $machine['id']; ?>" <?= ($machine['etat'] === 'on') ? 'checked' : ''; ?>>
                                     <span class="slider round"></span>
                                 </label>
+                                <span class="text-muted ms-2">
+                                    <?= ($machine['etat'] === 'on') ? 'Allumé' : 'Éteint'; ?>
+                                </span>
                             </div>
 
+
                             <!-- Delete Button -->
-                            <button class="btn btn-danger w-100 delete-btn" data-id="<?= $machine['id']; ?>">Delete</button>
+                            <button class="btn btn-danger w-100 delete-btn" data-id="<?= $machine['id']; ?>">Supprimer</button>
                         </div>
                     </div>
                 </div>
@@ -212,13 +217,13 @@ try {
                         const machineId = $(this).data('id');
 
                         Swal.fire({
-                            title: 'Are you sure?',
-                            text: "You won't be able to revert this!",
+                            title: 'Es-tu sûr?',
+                            text: "Vous ne pourrez pas revenir en arrière !",
                             icon: 'warning',
                             showCancelButton: true,
                             confirmButtonColor: '#dc3545',
                             cancelButtonColor: '#6c757d',
-                            confirmButtonText: 'Yes, delete it!'
+                            confirmButtonText: 'Oui, supprime-le !'
                         }).then((result) => {
                             if (result.isConfirmed) {
                                 // Send AJAX request to delete the machine
@@ -228,11 +233,11 @@ try {
                                     data: { id: machineId },
                                     success: function (response) {
                                         Swal.fire({
-                                            title: 'Deleted!',
-                                            text: 'Machine has been deleted successfully.',
+                                            title: 'Supprimé!',
+                                            text: 'La machine a été supprimée avec succès.',
                                             icon: 'success',
                                             confirmButtonColor: '#28a745',
-                                            confirmButtonText: 'OK'
+                                            confirmButtonText: 'D''ACCORD'
                                         }).then(() => {
                                             location.reload(); // Reload the page to reflect changes
                                         });
@@ -240,7 +245,7 @@ try {
                                     error: function (error) {
                                         Swal.fire({
                                             title: 'Error!',
-                                            text: 'There was a problem deleting the machine.',
+                                            text: 'Un problème est survenu lors de la suppression de la machine.',
                                             icon: 'error',
                                             confirmButtonColor: '#dc3545',
                                             confirmButtonText: 'OK'
