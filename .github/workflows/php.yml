@@ -1,4 +1,4 @@
-name: PHP Composer
+name: CI
 
 on:
   push:
@@ -10,28 +10,38 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  web:
+    name: Application web (PHP 8.2)
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+      - name: Vérification de la syntaxe PHP
+        run: find web -name "*.php" -print0 | xargs -0 -n1 php -l
 
-    - name: List files
-      run: ls -la
+  firmware:
+    name: Firmware Arduino Uno
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configuration d'exemple
+        run: cp firmware/siame_gprs/config.example.h firmware/siame_gprs/config.h
+      - uses: arduino/compile-sketches@v1
+        with:
+          fqbn: arduino:avr:uno
+          sketch-paths: firmware/siame_gprs
+          libraries: |
+            - name: DHT sensor library
+            - name: Adafruit Unified Sensor
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
-
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v3
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
-
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
+  simulator:
+    name: Simulateur Python
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m py_compile simulator/simulate_device.py && python simulator/simulate_device.py backfill --hours 1 | head -3

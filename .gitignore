@@ -1,0 +1,9 @@
+# Secrets locaux
+web/config.php
+firmware/siame_gprs/config.h
+
+# Outils
+.vscode/
+.idea/
+__pycache__/
+*.log
